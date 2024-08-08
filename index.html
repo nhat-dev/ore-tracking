@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Real-time Log</title>
+</head>
+
+<body>
+    <h1>Real-time Log</h1>
+    <pre id="log"></pre>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        var logElement = document.getElementById('log');
+
+        socket.on('log', function (data) {
+            logElement.innerText += data + '\n';
+        });
+    </script>
+</body>
+
+</html>
